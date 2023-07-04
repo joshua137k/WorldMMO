@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://l8nhhix7eiog"]
+
+[ext_resource type="Script" path="res://multiplayer/Chat/script/chat.gd" id="1_xbcgb"]
+
+[node name="Chat" type="Node2D"]
+script = ExtResource("1_xbcgb")
+
+[node name="Chat" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LineEdit" type="LineEdit" parent="Chat"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 388.0
+offset_right = 629.0
+offset_bottom = 419.0
+
+[node name="TextEdit" type="TextEdit" parent="Chat"]
+layout_mode = 0
+offset_right = 707.0
+offset_bottom = 384.0
+editable = false
+
+[node name="SendMessage" type="Button" parent="Chat"]
+layout_mode = 0
+offset_left = 634.0
+offset_top = 382.0
+offset_right = 716.0
+offset_bottom = 434.0
+text = "OK
+"
+
+[connection signal="pressed" from="Chat/SendMessage" to="." method="_on_send_message_pressed"]
