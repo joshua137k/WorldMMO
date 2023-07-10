@@ -35,6 +35,7 @@ func _on_login_pressed():
 	var username = username_textbox.text
 	var password = password_textbox.text
 	var message = {"username": username, "password": password}
+	Global.url=$login/VBoxContainer/ip.text
 	send_chat("/login",message)
 
 

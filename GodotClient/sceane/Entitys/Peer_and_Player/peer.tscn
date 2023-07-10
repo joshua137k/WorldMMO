@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbbpxfmtxk1h8"]
+
+[ext_resource type="Script" path="res://script/player_and_peer/peer.gd" id="1_ul4i7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_d5hkt"]
+
+[node name="peer" type="MeshInstance3D" groups=["peer"]]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2507, 0)
+mesh = SubResource("CapsuleMesh_d5hkt")
+script = ExtResource("1_ul4i7")

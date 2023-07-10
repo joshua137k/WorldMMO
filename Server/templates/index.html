@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa 2D</title>
+    <style>
+        .block {
+            float: left;
+            width: 10px;
+            height: 10px;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .block.green {
+            background-color: green;
+        }
+
+        .block.blue {
+            background-color: blue;
+        }
+        .block.red {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    {% for x in range(-49, 50) %}
+        {% for z in range(-44, 45) %}
+            <div class="block {% if mapa[(x, 0,  z )] == 0 %}green{% elif mapa[( x , 0,  z )] == 1 %}blue{% else %}red{% endif %}"></div>
+
+        {% endfor %}
+        <div style="clear: both;"></div> <!-- Adiciona uma quebra de linha após cada linha de blocos -->
+    {% endfor %}
+</body>
+</html>

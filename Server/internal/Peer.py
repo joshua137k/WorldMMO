@@ -1,4 +1,6 @@
 from fastapi import WebSocket, WebSocketDisconnect
+import json
+
 
 class peer:
     def __init__(self,response,client_token,P_Manager):
@@ -15,11 +17,17 @@ class peer:
             while True:
                 data = await self.response.receive()
                 if data["type"] == "websocket.disconnect":
+
+                    msg = {"id":self.client_token,"type":"player_disconnected"}
+                    msg = json.dumps(msg)
+
+                    await self.P_Manager.broadcast(msg.encode(),self.client_token)
+
                     del self.P_Manager.OnlineClients[self.client_token]
                     break
 
                 # Enviar mensagem para todos os clientes conectados, exceto o remetente
-                print(data)
+                #print(data)
 
 
                 await self.P_Manager.broadcast(data["bytes"],self.client_token)
